@@ -2,7 +2,7 @@ import {
   Link2, Type, Phone, MessageSquare, Mail, Wifi, Contact, IdCard,
   MapPin, CalendarDays, Facebook, Instagram, Music2, Youtube, Linkedin,
   Twitter, Wallet, IndianRupee, Bitcoin, FileText, Smartphone, Video,
-  AudioLines, MessageCircle, Send, Globe
+  AudioLines, MessageCircle, Send, Globe, Banknote, CreditCard, Landmark, Building2
 } from 'lucide-react';
 
 // Each category: id, label, icon, group, fields[], and build(values) -> string encoded in QR
@@ -56,4 +56,14 @@ export const CATEGORIES = [
   { id: 'discord', label: 'Discord', icon: MessageCircle, group: 'Social', fields: [{ key: 'url', label: 'Invite URL', placeholder: 'https://discord.gg/invite' }], build: v => v.url || '' },
   { id: 'telegram', label: 'Telegram', icon: Send, group: 'Social', fields: [{ key: 'user', label: 'Username', placeholder: 'yourbrand' }], build: v => `https://t.me/${(v.user || '').replace('@', '')}` },
   { id: 'custom', label: 'Custom URL', icon: Globe, group: 'Basics', fields: [{ key: 'url', label: 'Any URL scheme', placeholder: 'myapp://open?id=1' }], build: v => v.url || '' },
+
+  // Pakistani wallets & banks
+  { id: 'easypaisa', label: 'EasyPaisa', icon: Wallet, group: 'Payments', fields: [{ key: 'acct', label: 'Mobile account number', placeholder: '03XXXXXXXXX' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `EasyPaisa Payment\nAccount: ${v.acct || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'jazzcash', label: 'JazzCash', icon: Wallet, group: 'Payments', fields: [{ key: 'acct', label: 'Mobile account number', placeholder: '03XXXXXXXXX' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `JazzCash Payment\nAccount: ${v.acct || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'nayapay', label: 'NayaPay', icon: CreditCard, group: 'Payments', fields: [{ key: 'handle', label: 'NayaPay ID / @tag', placeholder: '@yourtag' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `NayaPay\nID: ${v.handle || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'sadapay', label: 'SadaPay', icon: CreditCard, group: 'Payments', fields: [{ key: 'iban', label: 'IBAN / account', placeholder: 'PK__SADA________' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `SadaPay\nAccount: ${v.iban || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'ubl', label: 'UBL Bank', icon: Landmark, group: 'Payments', fields: [{ key: 'iban', label: 'IBAN', placeholder: 'PK__UNIL________' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `UBL Bank Transfer\nIBAN: ${v.iban || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'mcb', label: 'MCB Bank', icon: Landmark, group: 'Payments', fields: [{ key: 'iban', label: 'IBAN', placeholder: 'PK__MUCB________' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `MCB Bank Transfer\nIBAN: ${v.iban || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'abl', label: 'Allied Bank (ABL)', icon: Building2, group: 'Payments', fields: [{ key: 'iban', label: 'IBAN', placeholder: 'PK__ABPA________' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `Allied Bank Transfer\nIBAN: ${v.iban || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
+  { id: 'meezan', label: 'Meezan Bank', icon: Banknote, group: 'Payments', fields: [{ key: 'iban', label: 'IBAN', placeholder: 'PK__MEZN________' }, { key: 'name', label: 'Account title', placeholder: 'Jordan Rivera' }, { key: 'amt', label: 'Amount (PKR)', placeholder: '1000' }], build: v => `Meezan Bank Transfer\nIBAN: ${v.iban || ''}\nName: ${v.name || ''}\nAmount: PKR ${v.amt || ''}` },
 ];

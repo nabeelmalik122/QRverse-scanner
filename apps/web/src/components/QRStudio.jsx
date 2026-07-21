@@ -167,9 +167,11 @@ export default function QRStudio() {
       {/* Right: preview + download */}
       <div className="space-y-5">
         <div className="glass sticky top-24 rounded-3xl p-6 text-center">
-          <div className="mx-auto flex aspect-square w-full max-w-[280px] items-center justify-center rounded-2xl bg-white p-3 shadow-inner"
-            style={transparent ? { backgroundImage: 'linear-gradient(45deg,#eee 25%,transparent 25%),linear-gradient(-45deg,#eee 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#eee 75%),linear-gradient(-45deg,transparent 75%,#eee 75%)', backgroundSize: '16px 16px', backgroundPosition: '0 0,0 8px,8px -8px,-8px 0' } : undefined}>
-            <div ref={ref} aria-label="Live QR code preview" />
+          <div className="mx-auto flex aspect-square w-full max-w-[280px] items-center justify-center overflow-hidden rounded-2xl shadow-inner [&_svg]:h-full [&_svg]:w-full [&_svg]:rounded-2xl"
+            style={transparent
+              ? { backgroundImage: 'linear-gradient(45deg,#eee 25%,transparent 25%),linear-gradient(-45deg,#eee 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#eee 75%),linear-gradient(-45deg,transparent 75%,#eee 75%)', backgroundSize: '16px 16px', backgroundPosition: '0 0,0 8px,8px -8px,-8px 0' }
+              : { backgroundColor: bg }}>
+            <div ref={ref} aria-label="Live QR code preview" className="flex h-full w-full items-center justify-center [&>*]:h-full [&>*]:w-full" />
           </div>
           <p className="mt-3 truncate text-xs text-muted-foreground" title={data}>{data}</p>
 
